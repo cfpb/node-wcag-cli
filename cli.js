@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var wcag = require('./'),
+var wcag = require('wcag'),
     getVersion = require('./lib/getVersion'),
     getHelptext = require('./lib/getHelptext'),
     printReport = require('./lib/printReport'),

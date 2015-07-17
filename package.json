@@ -1,7 +1,7 @@
 {
-  "name": "wcag",
+  "name": "wcag-cli",
   "description": "Test a site for WCAG or Section 508 compliancy.",
-  "version": "0.1.12",
+  "version": "1.0.0",
   "homepage": "https://github.com/cfpb/node-wcag",
   "author": {
     "name": "Chris Contolini",
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/cfpb/node-wcag.git"
+    "url": "git://github.com/cfpb/node-wcag-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/cfpb/node-wcag/issues"
+    "url": "https://github.com/cfpb/node-wcag-cli/issues"
   },
   "license": "CC0-1.0",
   "keywords": [
@@ -34,28 +34,25 @@
   "bin": {
     "wcag": "./cli.js"
   },
-  "main": "index.js",
+  "main": "cli.js",
   "engines": {
     "node": ">=0.8"
   },
   "scripts": {
-    "test": "eslint index.js && nodeunit test",
-    "coveralls": "jscoverage index.js && WCAG_COVERAGE=1 nodeunit --reporter=lcov test | coveralls"
+    "test": "eslint cli.js && nodeunit test",
+    "coveralls": "jscoverage cli.js && WCAG_COVERAGE=1 nodeunit --reporter=lcov test | coveralls"
   },
   "dependencies": {
-    "async": "^1.3.0",
     "capitalize": "^1.0.0",
     "html-entities": "^1.1.2",
-    "http-https": "^1.0.0",
     "indent-string": "^1.2.1",
     "localtunnel": "^1.5.1",
     "log-symbols": "^1.0.2",
     "minimist": "^1.1.1",
     "protocolify": "^1.0.1",
     "update-notifier": "^0.5.0",
-    "valid-url": "^1.0.9",
     "verbalize": "^0.1.2",
-    "xml2json": "^0.7.1"
+    "wcag": "^0.1.12"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",

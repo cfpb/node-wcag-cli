@@ -227,7 +227,7 @@ rules:
 
   # Disallows use of process.env.
   # Only applicable to Node.js.
-  no-process-env: 2
+  # no-process-env: 2
 
   # Disallows usage of __proto__ property.
   no-proto: 2
