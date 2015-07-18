@@ -1,16 +1,16 @@
-# node-wcag [![Build Status](https://secure.travis-ci.org/cfpb/node-wcag.png?branch=master)](http://travis-ci.org/cfpb/node-wcag) [![Coverage Status](https://coveralls.io/repos/cfpb/node-wcag/badge.svg)](https://coveralls.io/r/cfpb/node-wcag)
+# node-wcag [![Build Status](https://secure.travis-ci.org/cfpb/node-wcag-cli.png?branch=master)](http://travis-ci.org/cfpb/node-wcag-cli) [![Coverage Status](https://coveralls.io/repos/cfpb/node-wcag-cli/badge.svg)](https://coveralls.io/r/cfpb/node-wcag-cli)
 
-WCAG and Section 508 accessibility audits from the command line or as a traditional node module.
+WCAG and Section 508 accessibility audits from the command line.
 
-![WCAG Screenshot](https://raw.githubusercontent.com/cfpb/node-wcag/master/screenshot.png)
+![WCAG Screenshot](https://raw.githubusercontent.com/cfpb/node-wcag-cli/master/screenshot.png)
 
-## CLI installation
+## Installation
 
 ```sh
-$ npm install wcag --global
+$ npm install wcag-cli --global
 ```
 
-## CLI usage
+## Usage
 
 First, get a free [AChecker API ID](http://achecker.ca/register.php). Then:
 
@@ -52,67 +52,16 @@ $ wcag wikipedia.org --id=<achecker id> --guide=508
 $ wcag wikipedia.org --id=<achecker id> --guide=BITV1
 ```
 
-## Module installation
-
-```sh
-$ npm install wcag
-```
-
-## Module usage
-
-```javascript
-
-var wcag = require('wcag');
-var options = {
-  id: '69f6ea6a9e30b37c3d341d3b716df218f8942c0e',
-  uri: 'http://contolini.github.io/node-wcag/test/fixtures/whitehouse.html',
-  guide: 'WCAG2-AA'
-};
-
-wcag(options, function (error, data) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log(data);
-  }
-});
-```
-
-The example will return [this output](data/output.json)
-
-### Options
-
-#### id
-
-Type: `string`  
-Required: true
-Your free [AChecker API ID](http://achecker.ca).
-
-#### uri
-
-Type: `string`
-Required: true
-URL for the page you want to validate
-
-#### guide
-
-Type: `string`
-Required: false
-Choices: `508`, `WCAG1-A`, `WCAG1-AA`, `WCAG1-AAA`, `WCAG2-A`, `WCAG2-AA`, `WCAG2-AAA`, `BITV1`, `STANCA`
-Default: `WCAG2-AA`
-
-The accessbility guideline to validate against.
-
 ## Contributing
 
 Please read the [Contributing guidelines](CONTRIBUTING.md).
 
-### Running node-wcag locally
+### Running node-wcag-cli locally
 
 To contribute code, fork this repo, clone it down to your machine and use npm link:
 
 ```sh
-$ npm uninstall -g wcag
+$ npm uninstall -g wcag-cli
 $ cd node-wcag
 $ npm link
 $ wcag whatever.com
@@ -124,14 +73,18 @@ We are using [nodeunit](https://github.com/caolan/nodeunit) to test.
 To run tests, first install nodeunit and any dependencies via npm:
 
 ```sh
-npm install
+$ npm install
 ```
 
 Run tests with:
 
 ```sh
-npm test
+$ npm test
 ```
+
+## Related
+
+- [node-wcag](https://github.com/cfpb/node-wcag) The API for this module
 
 ## License
 
