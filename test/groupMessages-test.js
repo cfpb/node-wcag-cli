@@ -1,4 +1,6 @@
-var groupMessages = require('../lib/groupMessages'),
+var groupMessages = process.env.CLIPARSE_COV
+  ? require('../lib-cov/groupMessages')
+  : require('../lib/groupMessages'),
     fakeAPIResults = require('./fixtures/response');
 
 exports.printReport = {

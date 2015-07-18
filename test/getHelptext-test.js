@@ -1,4 +1,6 @@
-var getHelptext = require('../lib/getHelptext');
+var getHelptext = process.env.CLIPARSE_COV
+  ? require('../lib-cov/getHelptext')
+  : require('../lib/getHelptext');
 var helpText = require('../lib/helptext.json').join('\n');
 
 exports.getHelptext = {
