@@ -39,7 +39,7 @@
     "node": ">=0.10"
   },
   "scripts": {
-    "test": "eslint index.js && eslint lib && nodeunit test",
+    "test": "eslint cli.js && eslint lib && nodeunit test",
     "coveralls": "jscoverage lib && CLIPARSE_COV=1 nodeunit --reporter=lcov test | coveralls"
   },
   "dependencies": {
