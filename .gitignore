@@ -68,6 +68,7 @@ nosetests.xml
 coverage.xml
 *-cov.js
 .coveralls.yml
+lib-cov
 
 # Front-End #
 #############

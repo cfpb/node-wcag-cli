@@ -5,7 +5,9 @@ function counter() {
   log.push(arguments[0]);
 }
 
-var printReport = require('../lib/printReport'),
+var printReport = process.env.CLIPARSE_COV
+    ? require('../lib-cov/printReport')
+    : require('../lib/printReport'),
     fakeAPIResults = require('./fixtures/response');
 
 exports.printReport = {

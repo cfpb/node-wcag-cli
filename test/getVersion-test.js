@@ -1,4 +1,6 @@
-var getVersion = require('../lib/getVersion');
+var getVersion = process.env.CLIPARSE_COV
+  ? require('../lib-cov/getVersion')
+  : require('../lib/getVersion');
 var pkg = require('../package.json');
 
 exports.getVersion = {

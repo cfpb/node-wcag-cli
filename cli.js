@@ -1,32 +1,32 @@
 #!/usr/bin/env node
 
 var wcag = require('wcag'),
-    getVersion = require('./lib/getVersion'),
-    getHelptext = require('./lib/getHelptext'),
-    printReport = require('./lib/printReport'),
-    log = require('verbalize'),
-    argv = require('minimist')(process.argv.slice(2)),
-    localtunnel = require('localtunnel'),
-    url = require('url'),
-    protocolify = require('protocolify'),
-    updateNotifier = require('update-notifier');
+  getVersion = require('./lib/getVersion'),
+  getHelptext = require('./lib/getHelptext'),
+  printReport = require('./lib/printReport'),
+  log = require('verbalize'),
+  argv = require('minimist')(process.argv.slice(2)),
+  localtunnel = require('localtunnel'),
+  url = require('url'),
+  protocolify = require('protocolify'),
+  updateNotifier = require('update-notifier');
 
 var uri = argv._[0] || argv.u || argv.uri || argv.url,
-    id = argv.id || process.env.ACHECKER_ID,
-    guide = argv.guide,
-    pkg = require('./package.json'),
-    isLocal;
+  id = argv.id || process.env.ACHECKER_ID,
+  guide = argv.guide,
+  pkg = require('./package.json'),
+  isLocal;
 
 updateNotifier({pkg: pkg}).notify();
 
 if (process.argv.indexOf('-v') !== -1 || process.argv.indexOf('--version') !== -1) {
   console.log(getVersion());
-  return;
+  process.exit(0);
 }
 
 if (process.argv.indexOf('-h') !== -1 || process.argv.indexOf('--help') !== -1) {
   console.log(getHelptext());
-  return;
+  process.exit(0);
 }
 
 if (!uri) {

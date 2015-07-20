@@ -36,11 +36,11 @@
   },
   "main": "cli.js",
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.10"
   },
   "scripts": {
-    "test": "eslint cli.js && nodeunit test",
-    "coveralls": "jscoverage cli.js && WCAG_COVERAGE=1 nodeunit --reporter=lcov test | coveralls"
+    "test": "eslint cli.js && eslint lib && nodeunit test",
+    "coveralls": "jscoverage lib && CLIPARSE_COV=1 nodeunit --reporter=lcov test | coveralls"
   },
   "dependencies": {
     "capitalize": "^1.0.0",
