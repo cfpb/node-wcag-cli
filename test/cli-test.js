@@ -1,4 +1,4 @@
-var exec = require('child_process').execFileSync;
+var exec = require('child_process').execFile;
 var getHelpText = require('../lib/getHelptext');
 var getVersion = require('../lib/getVersion');
 
@@ -7,23 +7,47 @@ exports.cli = {
     done();
   },
   'Returns helptext with flag -h': function testHelpWithH(test) {
-    var helpText = exec('./cli.js', ['-h']).toString().trim();
-    test.equal(helpText, getHelpText());
-    test.done();
+    exec('./cli.js', ['-h'], function helpTextWithH(error, stdout, stderr) {
+      if (error) {
+        console.error(stderr.toString());
+        throw error;
+      } else {
+        test.equal(stdout.toString().trim(), getHelpText().toString().trim());
+        test.done();
+      }
+    })
   },
   'Returns helptext with flag --help': function testHelpWithHelp(test) {
-    var helpText = exec('./cli.js', ['-h']).toString().trim();
-    test.equal(helpText, getHelpText());
-    test.done();
+    exec('./cli.js', ['--help'], function helpTextWithHelp(error, stdout, stderr) {
+      if (error) {
+        console.error(stderr.toString());
+        throw error;
+      } else {
+        test.equal(stdout.toString().trim(), getHelpText().toString().trim());
+        test.done();
+      }
+    })
   },
   'Returns version with flag -v': function testVersionWithV(test) {
-    var versionText = exec('./cli.js', ['-v']).toString().trim();
-    test.equal(versionText, getVersion());
-    test.done();
+    exec('./cli.js', ['-v'], function versionWithV (error, stdout, stderr) {
+      if (error) {
+        console.error(stderr.toString());
+        throw error;
+      } else {
+        test.equal(stdout.toString().trim(), getVersion());
+        test.done();
+      }
+    })
   },
   'Returns version with flag --version': function testVersionWithVersion(test) {
-    var versionText = exec('./cli.js', ['--version']).toString().trim();
-    test.equal(versionText, getVersion());
-    test.done();
+    exec('./cli.js', ['--version'], function versionWithV (error, stdout, stderr) {
+      if (error) {
+        console.error(stderr.toString());
+        throw error;
+      } else {
+        test.equal(stdout.toString().trim(), getVersion());
+        test.done();
+      }
+    })
   }
 };
